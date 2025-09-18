@@ -1,0 +1,385 @@
+
+/*  Reset de base       */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter Tight', sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.6;
+  /* padding: 1rem; */
+}
+
+
+/*  Header              */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+header img {
+  height: 40px;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Titre de page       */
+
+main h1 {
+  font-size: 1.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+main p {
+  margin-bottom: 2rem;
+}
+
+.entete {
+  text-align: center;
+  padding: 1rem;
+}
+
+
+/*  Liste de recettes   */
+
+.recipes-list {
+  background-color: #C0CC9B; /* vert doux Yoogy */
+  padding: 2rem 1rem;
+  border-radius: 1rem 1rem 0 0;
+  display: flex;
+  flex-direction: column; /* les éléments empilés verticalement */
+  gap: 2rem; /* espace entre le <p> et les cards */
+  margin-bottom: 0;
+}
+
+.recipes-list > p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2e7d32; /* vert plus foncé */
+  margin-bottom: 1.5rem;
+}
+
+
+/*  Carte recette       */
+
+.recipes-grid {
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 1.5rem;
+}
+
+.recipe-card {
+  background-color: #f9f9f9;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  outline: none;
+  /* flex: 1 1 300px;*/ /* minimum 300px, wrap si pas assez de place */
+  /* max-width: 100%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card:hover,
+.recipe-card:focus {
+  border-color: #4caf50; /* vert Yoogy */
+  transform: translateY(-4px);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 200px;
+  /* display: block; */
+  object-fit: cover;
+}
+
+.recipe-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.recipe-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.recipe-description {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.author {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tag {
+  font-size: 0.75rem;
+  background-color: #e0f2f1;
+  color: #00796b;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.arrow-icon {
+  width: 1rem;
+  height: 1rem;
+  stroke: #000;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover .arrow-icon,
+.recipe-card:focus .arrow-icon {
+  transform: rotate(45deg);
+}
+
+
+/*  Footer              */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  margin-top: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid #ccc;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+footer img {
+  margin-top: 2rem;
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+footer nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /*mobile-first => colonne*/
+  gap: 1rem;
+  align-items: center;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+footer nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer p {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/*  Responsive tablet+  */
+
+@media screen and (min-width: 768px) {
+  footer nav ul {
+    flex-direction: row; /* horizontaux */
+    gap: 2rem;
+  }
+
+  .recipes-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .recipes-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  body {
+    padding: 2rem 3rem;
+  }
+}
+
+
+/*  Page de détail      */
+
+.recipe-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.recipe-detail img {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.detail-content {
+  /*background-color: #f1f8f4;*/
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.detail-content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-content .author {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.detail-content .intro {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.detail-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2e7d32;
+}
+
+.detail-content ul,
+.detail-content ol {
+  margin-left: 1.5rem;
+  line-height: 1.6;
+}
+
+@media screen and (min-width: 768px) {
+  .recipe-detail {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .recipe-detail img {
+    flex: 1;
+    max-width: 50%;
+    margin-right: 2rem;
+  }
+
+  .detail-content {
+    flex: 2;
+  }
+}
+
+body.recette-page .recipe-page {
+    display: flex;
+    align-items: flex-start;
+}
+
+body.recette-page .recipe-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+body.recette-page .recipe-image {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex: 0 0 50%;
+}
+
+body.recette-page .recipe-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.info-card {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  overflow: hidden;
+  font-family: sans-serif;
+  margin: 2rem auto;
+}
+
+.info-top {
+  background-color: #88a428; /* Vert foncé */
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.info-bottom {
+  background-color: #c6d49d; /* Vert clair */
+  display: flex;
+  justify-content: space-around;
+  padding: 1.2rem;
+}
+
+.info-box, .info-detail {
+  background-color: white;
+  border-radius: 16px;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  min-width: 100px;
+}
+
+.info-box p {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.icons {
+  display: flex;
+  gap: 8px; /* espace entre les images */
+  align-items: center;
+}
+
+.icons img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
